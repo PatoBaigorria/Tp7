@@ -18,7 +18,7 @@ public class Alumno {
     private String apellido;
     private String nombre;
     
-    private HashSet<Materia> materias = new HashSet<>();
+    HashSet<Materia> materias = new HashSet<>();
 
     public Alumno(int legajo, String apellido, String nombre) {
         this.legajo = legajo;
@@ -58,8 +58,12 @@ public class Alumno {
         this.materias = materias;
     }
 
-   public void agregarMateria(Materia m){
-       materias.add(m);
+    public int agregarMateria(Materia m){
+       if (materias.add(m)) {
+        return 1;
+      }
+      else 
+         return 0;  
               
    }
    
@@ -69,9 +73,37 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Alumno " + "legajo=" + legajo + ", apellido=" + apellido + ", nombre=" + nombre;
+        return "" + apellido + " " + nombre;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 43 * hash + this.legajo;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Alumno other = (Alumno) obj;
+        if (!Objects.equals(this.materias, other.materias)) {
+            return false;
+        }
+        return true;
+    }
+
+    
+
+   
     
     
     

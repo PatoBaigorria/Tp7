@@ -5,6 +5,8 @@
  */
 package tp7;
 
+import java.util.Iterator;
+
 /**
  *
  * @author Familia
@@ -33,11 +35,18 @@ public class Colegio {
         alum2.agregarMateria(m3);
         alum2.agregarMateria(m3);
         
-        System.out.println("Alumno: "+alum1.getApellido()+" "+alum1.getNombre()+ " está inscripto en "+alum1.cantidadMaterias()+" materias");
+        System.out.println("Alumno: "+alum1.getApellido()+" "+alum1.getNombre()+ " está inscripto en "+alum1.cantidadMaterias()+" materias: ");
         
-        System.out.println("Alumna: "+alum2.getApellido()+" "+alum2.getNombre()+ " está inscripta en "+alum2.cantidadMaterias()+" materias");
+        //System.out.println("Alumna: "+alum2.getApellido()+" "+alum2.getNombre()+ " está inscripta en "+alum2.cantidadMaterias()+" materias: ");
         
+        Iterator<Materia> it=alum1.materias.iterator();
         
+         while (it.hasNext()) {
+            Materia m=it.next();
+            
+            System.out.println(m.getNombre());
+        }
+       
     }
     
 }

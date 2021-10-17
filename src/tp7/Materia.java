@@ -5,7 +5,6 @@
  */
 package tp7;
 
-import java.util.HashSet;
 import java.util.Objects;
 
 /**
@@ -18,7 +17,7 @@ public class Materia {
     private String nombre;
     private int anio;
     
-    private HashSet<Alumno> alumnos = new HashSet<>();
+    
 
     public Materia(int idMateria, String nombre, int anio) {
         this.idMateria = idMateria;
@@ -50,23 +49,16 @@ public class Materia {
         this.anio = anio;
     }
 
-    public HashSet<Alumno> getAlumnos() {
-        return alumnos;
-    }
-
-    public void setAlumnos(HashSet<Alumno> alumnos) {
-        this.alumnos = alumnos;
-    }
-
+   
     @Override
     public String toString() {
-        return "idMateria=" + idMateria + ", nombre=" + nombre + ", anio=" + anio;
+        return "" + nombre;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.nombre);
+        hash = 41 * hash + this.idMateria;
         return hash;
     }
 
@@ -82,11 +74,13 @@ public class Materia {
             return false;
         }
         final Materia other = (Materia) obj;
-        if (!Objects.equals(this.nombre, other.nombre)) {
+        if (this.idMateria != other.idMateria) {
             return false;
         }
         return true;
     }
+
+   
 
         
     }

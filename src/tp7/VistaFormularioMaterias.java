@@ -153,13 +153,15 @@ public class VistaFormularioMaterias extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here:
+         HashSet <Materia> mat =  Menu.getMaterias ();
+        
         int idMateria = Integer.parseInt(jtCodMateria.getText());
         String nombre= jtNombreMateria.getText();
         int anio = Integer.parseInt(jtAnioMateria.getText());
         
         Materia m = new Materia(idMateria, nombre, anio);
         
-        HashSet <Materia> mat =  Menu.getMaterias ();
+       
         
         if (mat.add(m)) {
               
